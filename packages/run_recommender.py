@@ -21,6 +21,15 @@ def get_feature_vector(song_name, year, dat, features_list):
 
 # define a function to get the most similar songs
 def show_similar_songs(song_name, year, dat, features_list, top_n=10, plot_type='wordcloud'):
+    """
+    A function to get the most similar songs based on the cosine similarity of the features.
+    :param song_name: the name of the song (all letters)
+    :param year: the year of the song [int]
+    :param dat: the dataset
+    :param features_list: the list of features to be used for similarity calculation
+    :param top_n: the number of similar songs to be returned
+    :param plot_type: the type of plot to be used for visualization (wordcloud or barplot)
+    """
     feature_vector, song_repeated = get_feature_vector(song_name, year, dat, features_list)
     feature_for_recommendation = dat[features_list].values
     # calculate the cosine similarity
